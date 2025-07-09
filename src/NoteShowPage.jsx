@@ -1,4 +1,3 @@
-// src/NoteShowPage.jsx
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -25,24 +24,25 @@ export function NoteShowPage() {
     if (!window.confirm("Are you sure you want to delete this note?")) return;
 
     axios.delete(`/notes/${id}.json`).then(() => {
-      navigate("/notes"); // go back after delete
+      navigate("/notes");
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // IMPORTANT: nest formData inside 'note' so Rails can parse it correctly
     axios
-      .patch(`/notes/${id}.json`, { note: formData })
+      .patch(`/notes/${id}.json`, {
+        note: {
+          title: formData.title,
+          body: formData.body,
+        },
+      })
       .then((response) => {
         setNote(response.data);
         setEditing(false);
       })
-      .catch((err) => {
-        console.error(err);
-        alert("Error updating note.");
-      });
+      .catch(() => alert("Error updating note."));
   };
 
   if (error) return <p>{error}</p>;
@@ -58,7 +58,10 @@ export function NoteShowPage() {
         <>
           <h1>{note.title}</h1>
           <p>{note.body}</p>
-          <button className="btn btn-primary me-2" onClick={() => setEditing(true)}>
+          <button
+            className="btn btn-primary me-2"
+            onClick={() => setEditing(true)}
+          >
             Edit
           </button>
           <button className="btn btn-danger" onClick={handleDelete}>
@@ -75,7 +78,9 @@ export function NoteShowPage() {
                 name="title"
                 className="form-control"
                 value={formData.title}
-                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, title: e.target.value })
+                }
                 required
               />
             </div>
@@ -85,12 +90,20 @@ export function NoteShowPage() {
                 name="body"
                 className="form-control"
                 value={formData.body}
-                onChange={(e) => setFormData({ ...formData, body: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, body: e.target.value })
+                }
                 required
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-success me-2">Save</button>
-            <button className="btn btn-secondary" onClick={() => setEditing(false)}>
+            <button type="submit" className="btn btn-success me-2">
+              Save
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => setEditing(false)}
+            >
               Cancel
             </button>
           </form>

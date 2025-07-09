@@ -1,5 +1,10 @@
 import axios from "axios";
-import { createBrowserRouter, RouterProvider, Outlet, Navigate } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Navigate,
+} from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Header } from "./Header";
 import { NotesPage } from "./NotesPage";
@@ -31,11 +36,26 @@ const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
-      { path: "/", element: <Navigate to="/notes" replace /> },
-      { path: "/notes", element: <NotesPage /> },
-      { path: "/notes/:id", element: <NoteShowPage /> },
-      { path: "/signup", element: <SignupPage /> },
-      { path: "/login", element: <LoginPage /> },
+      {
+        path: "/",
+        element: <Navigate to="/notes" replace />,
+      },
+      {
+        path: "/notes",
+        element: <NotesPage />,
+      },
+      {
+        path: "/notes/:id",
+        element: <NoteShowPage />,
+      },
+      {
+        path: "/signup",
+        element: <SignupPage />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
     ],
   },
 ]);
