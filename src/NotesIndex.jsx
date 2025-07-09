@@ -6,7 +6,6 @@ export function NotesIndex({ notes, onShow }) {
       {notes.map((note) => (
         <div key={note.id}>
           <h2>{note.title}</h2>
-          <p>{note.body}</p>
           <button onClick={() => onShow(note)}>View Note</button>
         </div>
       ))}

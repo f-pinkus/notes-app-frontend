@@ -6,7 +6,7 @@ export function LogoutLink({ setIsLoggedIn }) {
 
   const handleClick = (event) => {
     event.preventDefault();
-    axios.delete("l/logout").then((response) => {
+    axios.delete("/logout").then((response) => {
       console.log(response);
       localStorage.removeItem("email");
       setIsLoggedIn(false); // Update the authentication state

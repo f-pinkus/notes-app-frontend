@@ -16,8 +16,8 @@ export function SignupPage() {
       event.target.reset();
       navigate("/login");
     }).catch((error) => {
-      console.log(error.response.data.errors);
-    });
+  setErrors(error.response?.data?.errors || ["Signup failed"]);
+});
   };
 
   return (

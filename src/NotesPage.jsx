@@ -1,6 +1,6 @@
 import axios from "axios";
 import { NotesIndex } from "./NotesIndex";
-import { useState, } from "react";
+import { useState, useEffect } from "react";
 // import { useOutletContext } from "react-router-dom";
 import { NotesShow } from "./NotesShow";
 import { NotesNew } from "./NotesNew";
@@ -11,7 +11,7 @@ export function NotesPage() {
   // const [isNotesShowVisible, setIsNotesShowVisible] = useState(false);
   const [currentNote, setCurrentNote] = useState({});
 
-  const HandleIndex = () => {
+  const handleIndex = () => {
     console.log("handleIndex!");
 
     axios.get("/notes.json").then((response) => {
@@ -19,6 +19,10 @@ export function NotesPage() {
       setNotes(response.data);
     });
   };
+
+  useEffect(() => {
+    handleIndex();
+  }, []);
 
 
   const handleCreate = (params, successCallback) => {
