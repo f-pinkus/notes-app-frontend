@@ -2,14 +2,11 @@ import axios from "axios";
 import { NotesIndex } from "./NotesIndex";
 import { useState, useEffect } from "react";
 // import { useOutletContext } from "react-router-dom";
-import { NotesShow } from "./NotesShow";
 import { NotesNew } from "./NotesNew";
 
 
 export function NotesPage() {
   const [notes, setNotes] = useState([]);
-  // const [isNotesShowVisible, setIsNotesShowVisible] = useState(false);
-  const [currentNote, setCurrentNote] = useState({});
 
   const handleIndex = () => {
     console.log("handleIndex!");
@@ -33,19 +30,11 @@ export function NotesPage() {
       successCallback();
     });
   };
-
-  const handleShow = (note) => {
-    console.log("handleShow!", note);
-
-    // setIsNotesShowVisible(true);
-    setCurrentNote(note);
-  }
   
   return (
   <main>
     <NotesNew onCreate={handleCreate} />
-    <NotesIndex notes={notes} onShow={handleShow} />
-    <NotesShow note={currentNote} />
+    <NotesIndex notes={notes} />
   </main>
   );
 }

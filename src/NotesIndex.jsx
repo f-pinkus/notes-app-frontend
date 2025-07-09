@@ -1,4 +1,6 @@
-export function NotesIndex({ notes, onShow }) {
+import { Link } from "react-router-dom";
+
+export function NotesIndex({ notes }) {
   return (
     <div>
       <h1>Your Notes:</h1>
@@ -6,7 +8,9 @@ export function NotesIndex({ notes, onShow }) {
       {notes.map((note) => (
         <div key={note.id}>
           <h2>{note.title}</h2>
-          <button onClick={() => onShow(note)}>View Note</button>
+          <Link to={`/notes/${note.id}`}>
+            View Note
+          </Link>
         </div>
       ))}
     </div>
