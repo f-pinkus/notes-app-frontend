@@ -1,9 +1,9 @@
 import axios from "axios";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Header } from "./Header";
 import { NotesPage } from "./NotesPage";
-import { NotesIndex } from "./NotesIndex"; // ✅ Import added
+import { NoteShowPage } from "./NoteShowPage";
 import { SignupPage } from "./SignupPage";
 import { LoginPage } from "./LoginPage";
 import { Footer } from "./Footer";
@@ -21,11 +21,7 @@ function Layout() {
   return (
     <div>
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-      <Outlet
-        context={{
-          setIsLoggedIn,
-        }}
-      />
+      <Outlet context={{ setIsLoggedIn }} />
       <Footer />
     </div>
   );
@@ -35,22 +31,11 @@ const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
-      {
-        path: "/",
-        element: <NotesPage />,
-      },
-      {
-        path: "/notes",
-        element: <NotesIndex notes={[]} onShow={() => {}} />, // You can customize this as needed
-      },
-      {
-        path: "/signup",
-        element: <SignupPage />,
-      },
-      {
-        path: "/login",
-        element: <LoginPage />,
-      },
+      { path: "/", element: <Navigate to="/notes" replace /> },
+      { path: "/notes", element: <NotesPage /> },
+      { path: "/notes/:id", element: <NoteShowPage /> },
+      { path: "/signup", element: <SignupPage /> },
+      { path: "/login", element: <LoginPage /> },
     ],
   },
 ]);

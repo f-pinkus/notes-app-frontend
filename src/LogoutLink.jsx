@@ -9,8 +9,8 @@ export function LogoutLink({ setIsLoggedIn }) {
     axios.delete("/logout").then((response) => {
       console.log(response);
       localStorage.removeItem("email");
-      setIsLoggedIn(false); // Update the authentication state
-      navigate("/"); // Navigate to photos page after logout
+      setIsLoggedIn(false);
+      navigate("/");
     });
   };
 

@@ -6,8 +6,7 @@ export function Header({ isLoggedIn, setIsLoggedIn }) {
     <header>
       <nav>
         <div>
-          <Link to="/">My Notes App</Link>
-
+          <h4>My Notes App</h4>
           <div>
             {isLoggedIn ? (
               <>
