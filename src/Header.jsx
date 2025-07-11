@@ -6,7 +6,7 @@ export function Header({ isLoggedIn, setIsLoggedIn }) {
   return (
     <header className="app-header bg-beige shadow-sm">
       <nav className="container d-flex justify-content-between align-items-center py-3">
-        <h4 className="app-title m-0">My Notes App</h4>
+        <h4 className="app-title m-0">Noti.</h4>
         <div className="nav-links">
           {isLoggedIn ? (
             <>
