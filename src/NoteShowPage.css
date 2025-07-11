@@ -1,0 +1,89 @@
+.note-show {
+  background-color: #fdf6ec;
+  font-family: 'Poppins', sans-serif;
+  color: #2d3a2d;
+  min-height: 100vh;
+}
+
+.note-card {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.05);
+}
+
+.note-card h1 {
+  color: #3e614b;
+  font-weight: 600;
+}
+
+.note-edit-form {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.05);
+}
+
+.note-edit-form h2 {
+  color: #3e614b;
+  font-weight: 600;
+}
+
+.note-edit-form .form-control {
+  border-radius: 0.75rem;
+}
+
+.note-edit-form .btn-success {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.note-edit-form .btn-success:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+}
+
+.note-show .btn-link {
+  color: #3e614b;
+  /* darker green */
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.note-show .btn-link:hover {
+  background-color: #d7e4d9;
+  /* very light greenish bg on hover */
+  text-decoration: none;
+  color: #2d3a2d;
+}
+
+.note-show .btn-primary {
+  background-color: #4caf50;
+  border-color: #4caf50;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.4);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-show .btn-primary:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+  box-shadow: 0 4px 12px rgba(69, 160, 73, 0.6);
+}
+
+.note-show .btn-danger {
+  background-color: #a94442;
+  border-color: #a94442;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(169, 68, 66, 0.4);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-show .btn-danger:hover {
+  background-color: #843534;
+  border-color: #843534;
+  box-shadow: 0 4px 12px rgba(132, 53, 52, 0.6);
+}

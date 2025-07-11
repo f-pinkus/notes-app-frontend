@@ -1,0 +1,13 @@
+.app-footer {
+  background-color: #fdf6ec;
+  /* beige/cream */
+  color: #3e614b;
+  /* dark green */
+  font-family: 'Poppins', sans-serif;
+  border-top: 1px solid #e6e6e6;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 8px rgba(0, 128, 0, 0.05);
+  border-radius: 1rem 1rem 0 0;
+}

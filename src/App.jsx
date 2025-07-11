@@ -24,13 +24,18 @@ function Layout() {
   }, []);
 
   return (
-    <div>
+    <div className="app-layout d-flex flex-column min-vh-100">
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-      <Outlet context={{ setIsLoggedIn }} />
+      
+      <main className="flex-grow-1 container py-4" style={{ paddingTop: "80px", paddingBottom: "60px" }}>
+        <Outlet context={{ setIsLoggedIn }} />
+      </main>
+      
       <Footer />
     </div>
   );
 }
+
 
 const router = createBrowserRouter([
   {

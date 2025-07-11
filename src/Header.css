@@ -1,0 +1,38 @@
+.bg-beige {
+  background-color: #fdf6ec;
+}
+
+.app-header {
+  font-family: 'Poppins', sans-serif;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.app-title {
+  color: #3e614b;
+  font-weight: 700;
+}
+
+.nav-links .btn-link {
+  color: #4caf50;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.nav-links .btn-link:hover {
+  background-color: #d7e4d9;
+  text-decoration: none;
+  color: #2d3a2d;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  /* above most content, same as Bootstrap's fixed-top */
+}

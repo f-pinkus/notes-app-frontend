@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./NoteShowPage.css";
 
 export function NoteShowPage() {
   const { id } = useParams();
@@ -49,27 +50,24 @@ export function NoteShowPage() {
   if (!note) return <p>Loading...</p>;
 
   return (
-    <div className="container mt-4">
+    <div className="note-show container mt-4">
       <button className="btn btn-link mb-3" onClick={() => navigate("/notes")}>
         ← Back to All Notes
       </button>
 
       {!editing ? (
-        <>
+        <div className="note-card p-4">
           <h1>{note.title}</h1>
           <p>{note.body}</p>
-          <button
-            className="btn btn-primary me-2"
-            onClick={() => setEditing(true)}
-          >
+          <button className="btn btn-primary me-2" onClick={() => setEditing(true)}>
             Edit
           </button>
           <button className="btn btn-danger" onClick={handleDelete}>
             Delete
           </button>
-        </>
+        </div>
       ) : (
-        <>
+        <div className="note-edit-form p-4">
           <h2>Edit Note</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -107,7 +105,7 @@ export function NoteShowPage() {
               Cancel
             </button>
           </form>
-        </>
+        </div>
       )}
     </div>
   );

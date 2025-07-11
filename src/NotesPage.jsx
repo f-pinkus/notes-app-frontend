@@ -1,18 +1,14 @@
 import axios from "axios";
-import { NotesIndex } from "./NotesIndex";
 import { useState, useEffect } from "react";
-// import { useOutletContext } from "react-router-dom";
+import { NotesIndex } from "./NotesIndex";
 import { NotesNew } from "./NotesNew";
-
+import "./NotesPage.css";
 
 export function NotesPage() {
   const [notes, setNotes] = useState([]);
 
   const handleIndex = () => {
-    console.log("handleIndex!");
-
     axios.get("/notes.json").then((response) => {
-      console.log(response.data);
       setNotes(response.data);
     });
   };
@@ -21,20 +17,23 @@ export function NotesPage() {
     handleIndex();
   }, []);
 
-
   const handleCreate = (params, successCallback) => {
-    console.log("handleCreate!");
-
     axios.post("/notes.json", params).then((response) => {
       setNotes([...notes, response.data]);
       successCallback();
     });
   };
-  
+
   return (
-  <main>
-    <NotesNew onCreate={handleCreate} />
-    <NotesIndex notes={notes} />
-  </main>
+    <main className="notes-page container py-5">
+      <div className="row g-5">
+        <div className="col-lg-5">
+          <NotesNew onCreate={handleCreate} />
+        </div>
+        <div className="col-lg-7">
+          <NotesIndex notes={notes} />
+        </div>
+      </div>
+    </main>
   );
 }

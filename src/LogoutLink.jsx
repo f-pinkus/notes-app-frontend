@@ -15,7 +15,11 @@ export function LogoutLink({ setIsLoggedIn }) {
   };
 
   return (
-    <button onClick={handleClick} className="btn btn-outline-danger">
+    <button
+      onClick={handleClick}
+      className="btn btn-danger logout-btn"
+      type="button"
+    >
       Logout
     </button>
   );

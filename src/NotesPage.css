@@ -1,0 +1,11 @@
+.notes-page {
+  background-color: #fdf6ec;
+  font-family: 'Poppins', sans-serif;
+  color: #2d3a2d;
+  min-height: 100vh;
+}
+
+/* Optional: Give some spacing around cards inside NotesIndex if needed */
+.notes-page .note-card {
+  margin-bottom: 1.25rem;
+}
